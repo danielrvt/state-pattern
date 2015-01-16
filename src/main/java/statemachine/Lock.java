@@ -9,26 +9,26 @@ import java.util.LinkedList;
  */
 public class Lock {
 
-    State locked;
-    State numberOneOk;
-    State numberTwoOk;
-    State numberThreeOk;
-    State numberFourOk;
-    State opened;
+    private State locked;
+    private State numberOneOk;
+    private State numberTwoOk;
+    private State numberThreeOk;
+    private State numberFourOk;
+    private State opened;
 
     State currentState;
     LinkedList<String> list;
 
     public Lock() {
-        locked = new Opened(this);
+        locked = new Locked(this);
         numberOneOk = new NumberOneOk(this);
         numberTwoOk = new NumberTwoOk(this);
         numberThreeOk = new NumberThreeOk(this);
         numberFourOk = new NumberFourOk(this);
         opened = new Opened(this);
 
+        list = new LinkedList<String>();
         list.add("Locked");
-
         currentState = locked;
     }
 
@@ -38,7 +38,6 @@ public class Lock {
 
     public void setCurrentState(State currentState) {
         this.currentState = currentState;
-        this.list.add(this.currentState.getMessage());
     }
 
     public State getLocked() {
@@ -69,25 +68,35 @@ public class Lock {
 
     public void lock() {
         currentState.lock();
+        this.list.add(this.currentState.getMessage());
     }
 
     public void inputNumberOne(int n) {
         currentState.inputNumberOne(n);
+        this.list.add(this.currentState.getMessage());
     }
 
     public void inputNumberTwo(int n) {
         currentState.inputNumberTwo(n);
+        this.list.add(this.currentState.getMessage());
     }
 
     public void inputNumberThree(int n) {
         currentState.inputNumberThree(n);
+        this.list.add(this.currentState.getMessage());
     }
 
     public void inputNumberFour(int n) {
         currentState.inputNumberFourk(n);
+        this.list.add(this.currentState.getMessage());
     }
 
     public void open() {
         currentState.open();
+        this.list.add(this.currentState.getMessage());
+    }
+
+    public LinkedList<String> getList() {
+        return list;
     }
 }

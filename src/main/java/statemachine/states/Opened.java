@@ -16,35 +16,35 @@ public class Opened implements State {
     @Override
     public void lock() {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from open lock!";
         System.out.println(this.message);
     }
 
     @Override
     public void inputNumberOne(int n) {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from open one!";
         System.out.println(this.message);
     }
 
     @Override
     public void inputNumberTwo(int n) {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from open two!";
         System.out.println(this.message);
     }
 
     @Override
     public void inputNumberThree(int n) {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed! from open three";
         System.out.println(this.message);
     }
 
     @Override
     public void inputNumberFourk(int n) {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed! from open fourk";
         System.out.println(this.message);
     }
 

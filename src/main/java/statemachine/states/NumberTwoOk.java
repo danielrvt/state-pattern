@@ -17,7 +17,7 @@ public class NumberTwoOk implements State {
     @Override
     public void lock() {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from state two!";
         System.out.println(this.message);
     }
 
@@ -36,7 +36,7 @@ public class NumberTwoOk implements State {
     @Override
     public void inputNumberThree(int n) {
         if (n == 2) {
-            this.lock.setCurrentState(this.lock.getNumberTwoOk());
+            this.lock.setCurrentState(this.lock.getNumberThreeOk());
             this.message = "Third number was entered right";
         } else {
             this.message = "You've got it wrong...";

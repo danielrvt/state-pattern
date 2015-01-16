@@ -11,13 +11,13 @@ public class NumberFourOk implements State {
 
     public NumberFourOk(Lock lock) {
         this.lock = lock;
-        this.message = "Only one number to go...";
+        this.message = "You've entered the last number right!";
     }
 
     @Override
     public void lock() {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from state four!";
         System.out.println(this.message);
     }
 

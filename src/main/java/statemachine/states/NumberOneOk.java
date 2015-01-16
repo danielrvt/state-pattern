@@ -17,7 +17,7 @@ public class NumberOneOk implements  State{
     @Override
     public void lock() {
         this.lock.setCurrentState(this.lock.getLocked());
-        this.message = "Lock closed!";
+        this.message = "Lock closed from state one!";
         System.out.println(this.message);
     }
 

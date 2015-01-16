@@ -1,32 +1,20 @@
 package statemachine;
 
+import java.util.LinkedList;
+
 public class StateMachine {
 
-    private final long id;
-    private final String content;
-    private final int number;
+    private final LinkedList<String> messages;
     private final Lock lock;
 
     public StateMachine(long id, String content) {
-        this.id = id;
-        this.content = content;
-        this.number = 2;
         this.lock = new Lock();
+
+        this.messages = new LinkedList<String>();
+        this.messages.add(this.lock.getCurrentState().getMessage());
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public Lock getLock() {
-        return lock;
+    public LinkedList<String> getMessages() {
+        return this.messages;
     }
 }
