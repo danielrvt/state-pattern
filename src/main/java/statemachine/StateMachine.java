@@ -1,20 +1,33 @@
 package statemachine;
 
+import statemachine.states.State;
+
 import java.util.LinkedList;
 
-public class StateMachine {
+/**
+ * Created by budi on 15/01/15.
+ */
+public interface StateMachine {
 
-    private final LinkedList<String> messages;
-    private final Lock lock;
+    /**
+     * Este metodo es importante para los
+     * estados de la caja fuerte.
+     *
+     * @return el estado actual
+     */
+    public State getCurrentState();
 
-    public StateMachine(long id, String content) {
-        this.lock = new Lock();
-
-        this.messages = new LinkedList<String>();
-        this.messages.add(this.lock.getCurrentState().getMessage());
-    }
-
-    public LinkedList<String> getMessages() {
-        return this.messages;
-    }
+    /**
+     * Esta lista se llena con cada acción sobre la clase Lock. Por ejemplo
+     * si se introduce el primer número, la lista contendrá el resultado
+     * de la acción: Número 1 introducido correctamente o Número 1 introducido
+     * de forma incorrecta.
+     *
+     * Esto es importante para que los webservices retornen la lista de eventos
+     * sobre la caja fuerte en el orden que ocurrieron.
+     *
+     * @return Una lista de mensajes (Eventos) sobre la
+     * caja fuerte.
+     */
+    public LinkedList<String> getList();
 }

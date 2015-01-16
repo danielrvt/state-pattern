@@ -7,7 +7,7 @@ import java.util.LinkedList;
 /**
  * Created by budi on 15/01/15.
  */
-public class Lock {
+public class Lock implements StateMachine {
 
     private State locked;
     private State numberOneOk;
@@ -65,7 +65,6 @@ public class Lock {
     }
 
     // Actions
-
     public void lock() {
         currentState.lock();
         this.list.add(this.currentState.getMessage());
