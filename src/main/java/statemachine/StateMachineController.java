@@ -17,30 +17,30 @@ public class StateMachineController {
 
     @RequestMapping("/state-machine/one")
     public LinkedList<String> enterFirst(@RequestParam(value = "number", defaultValue = "-1") int number) {
-        lock.inputNumberOne(number);
+        //TODO lock.Action(number);
         return lock.list;
     }
 
     @RequestMapping("/state-machine/two")
     public LinkedList<String> enterSecond(@RequestParam(value = "number", defaultValue = "-1") int number) {
-        lock.inputNumberTwo(number);
+        //TODO lock.Action(number);
         return lock.list;
     }
     @RequestMapping("/state-machine/three")
     public LinkedList<String> enterThird(@RequestParam(value = "number", defaultValue = "-1") int number) {
-        lock.inputNumberThree(number);
+        //TODO lock.Action(number);
         return lock.list;
     }
     @RequestMapping("/state-machine/four")
     public LinkedList<String> enterFourth(@RequestParam(value = "number", defaultValue = "-1") int number) {
-        lock.inputNumberFour(number);
+        //TODO lock.Action(number);
         return lock.list;
     }
 
     @RequestMapping("/state-machine/open")
     public boolean open() {
-        if (lock.getCurrentState() == lock.getNumberFourOk()) {
-            lock.open();
+        if (lock.getCurrentState() == lock./*Ingresó todos los números bien?*/) {
+            //TODO lock.open();
             return true;
         }
         else return false;
@@ -48,7 +48,7 @@ public class StateMachineController {
 
     @RequestMapping("/state-machine/close")
     public LinkedList<String> close(@RequestParam(value = "number", defaultValue = "-1") int number) {
-        lock.lock();
+        //lock.lock();
         return lock.list;
     }
 }
