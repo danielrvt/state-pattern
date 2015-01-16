@@ -12,7 +12,7 @@ public class Lock implements StateMachine {
     //TODO Declarar estados aqui.
 
     State currentState;
-    LinkedList<String> list;
+    final LinkedList<String> list;
 
     public Lock() {
         // Instanciar estados aqui.
